@@ -1,3 +1,9 @@
 export const fakeFilter = (arr, callBack) => {
-  return [4];
+  const output = [];
+  for(const item of arr) {
+    if(callBack(item)) {
+      output.push(item);
+    }
+  }
+  return output;
 };
