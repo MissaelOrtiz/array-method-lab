@@ -121,4 +121,14 @@ describe('array method functions', () => {
       expect(actual).toEqual(expected);
     });
   });
+
+  describe('every array method', () => {
+    it('takes an array and a callback and returns true if all the callbacks return true', () => {
+      const callBackFunc = item => item > 5;
+      const arr = [1, '', 3, '', 5, 6, '', 7];
+      const actual = fakeEvery(arr, callBackFunc);
+
+      expect(actual).toEqual(false);
+    });
+  });
 });
