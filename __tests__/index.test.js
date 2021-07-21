@@ -75,11 +75,49 @@ describe('array method functions', () => {
 
   describe('reduce array method', () => {
     it('takes an array and a callback function and optional value for the initial value of the callback functions accumulator', () => {
-      const callBackFunc = (acc, item) => {if(item[0].toLowerCase() === 'm') {return acc += 1;} else {return acc += 0;}};
+      const callBackFunc = (acc, item) => {
+        if(item[0].toLowerCase() === 'm') {
+          return acc += 1;
+        } else {return acc += 0;}
+      };
       const arr = ['Missael', 'Michael', 'munchies', 'Bubba'];
       const expected = 3;
       const actual = fakeReduce(arr, callBackFunc);
 
+      expect(actual).toEqual(expected);
+    });
+
+    it('fakeReduce function with numbers [VALIDATION]', () => {
+      const callBackFunc = (acc, item) => acc += item;
+      const arr = [1, 2, 3, ''];
+      const expected = 6;
+      const actual = fakeReduce(arr, callBackFunc);
+
+      expect(actual).toEqual(expected);
+    });
+
+    it('fakeReduce function with numbers and initial values [VALIDATION]', () => {
+      const callBackFunc = (acc, item) => acc += item;
+      const arr = [1, '', 2, '', 3, ''];
+      const expected = 10;
+      const actual = fakeReduce(arr, callBackFunc, 4);
+  
+      expect(actual).toEqual(expected);
+    });
+
+    it('fakeReduce function with strings and holes [VALIDATION]', () => {
+      const callBackFunc = (acc, item) => {
+        const length = item.length;
+        if(length < 5) {
+          return acc += 1;
+        } else {
+          return acc += 0;
+        }
+      };
+      const arr = ['mike', 'bill', 'harris', 'orley', 'caleb'];
+      const expected = 2;
+      const actual = fakeReduce(arr, callBackFunc);
+  
       expect(actual).toEqual(expected);
     });
   });
