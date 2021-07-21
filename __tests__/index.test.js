@@ -31,5 +31,14 @@ describe('array method functions', () => {
 
       expect(expected).toEqual(actual);
     }); 
+
+    it('fakeFilter validation', () => {
+      const callBackFunc = item => item[0].toLowerCase() === 'c';
+      const arr = ['cats', 'Clyde', 'bubba', 'Big Poppa'];
+      const expected = ['cats', 'Clyde'];
+      const actual = fakeFilter(arr, callBackFunc);
+
+      expect(expected).toEqual(actual);
+    });
   });
 });
