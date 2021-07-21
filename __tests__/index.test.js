@@ -10,5 +10,14 @@ describe('array method functions', () => {
 
       expect(expected).toEqual(actual);
     });
+
+    it('takes an array and a callback function and creates a new array with the callback function implemented [VALIDATION]', () => {
+      const callBackFunc = item => item.toUpperCase();
+      const arr = ['a', 'b', 'c'];
+      const expected = ['A', 'B', 'C'];
+      const actual = fakeMap(arr, callBackFunc);
+
+      expect(expected).toEqual(actual);
+    });
   });
 });
