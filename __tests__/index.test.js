@@ -20,4 +20,15 @@ describe('array method functions', () => {
       expect(expected).toEqual(actual);
     });
   });
+
+  describe('filter array method', () => {
+    it('takes an array and callback and creates a new array with items who returned true with the callback function', () => {
+      const callBackFunc = item => item > 3;
+      const arr = [1, 2, 3, 4];
+      const expected = [4];
+      const actual = fakeFilter(arr, callBackFunc);
+
+      expect(expected).toEqual(actual);
+    }); 
+  });
 });
