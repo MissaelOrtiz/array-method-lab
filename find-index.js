@@ -1,3 +1,5 @@
 export const fakeFindIndex = (arr, callBack) => {
-  return 1;
+  for(let i = 0; i < arr.length; i++) {
+    if(callBack(arr[i])) return i;
+  }
 };
