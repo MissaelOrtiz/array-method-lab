@@ -1,4 +1,5 @@
 import { fakeFilter } from '../filter-array';
+import { fakeFindIndex } from '../find-index';
 import { fakeMap } from '../map-array';
 
 describe('array method functions', () => {
