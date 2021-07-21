@@ -1,3 +1,4 @@
+/* eslint-disable array-bracket-spacing */
 /* eslint-disable no-sparse-arrays */
 import { fakeEvery } from '../every-array';
 import { fakeFilter } from '../filter-array';
@@ -38,7 +39,7 @@ describe('array method functions', () => {
   describe('filter array method', () => {
     it('takes an array and callback and creates a new array with items who returned true with the callback function', () => {
       const callBackFunc = item => item > 3;
-      const arr = [1, 2, 3, 4, ''];
+      const arr = [1, 2, 3, 4, ];
       const expected = [4];
       const actual = fakeFilter(arr, callBackFunc);
 
@@ -47,7 +48,7 @@ describe('array method functions', () => {
 
     it('fakeFilter validation', () => {
       const callBackFunc = item => item[0].toLowerCase() === 'c';
-      const arr = ['cats', 'Clyde', 'bubba', '', 'Big Poppa'];
+      const arr = ['cats', 'Clyde', 'bubba', , 'Big Poppa'];
       const expected = ['cats', 'Clyde'];
       const actual = fakeFilter(arr, callBackFunc);
 
@@ -58,7 +59,7 @@ describe('array method functions', () => {
   describe('findIndex array method', () => {
     it('takes an array and a callback function and returns the index of the found item', () => {
       const callBackFunc = item => item[0].toLowerCase() === 'm';
-      const arr = ['Andrew', 'Michael', '', 'Missael'];
+      const arr = ['Andrew', 'Michael',, 'Missael'];
       const expected = 1;
       const actual = fakeFindIndex(arr, callBackFunc);
 
@@ -67,7 +68,7 @@ describe('array method functions', () => {
 
     it('fakeFindIndex Validation', () => {
       const callBackFunc = item => item > 3;
-      const arr = [1, 2, '', 3, 5, 4, 6, 7];
+      const arr = [1, 2,, 3, 5, 4, 6, 7];
       const expected = 4;
       const actual = fakeFindIndex(arr, callBackFunc);
   
@@ -91,7 +92,7 @@ describe('array method functions', () => {
 
     it('fakeReduce function with numbers [VALIDATION]', () => {
       const callBackFunc = (acc, item) => acc += item;
-      const arr = [1, 2, 3, ''];
+      const arr = [1, 2, 3, ];
       const expected = 6;
       const actual = fakeReduce(arr, callBackFunc);
 
@@ -100,7 +101,7 @@ describe('array method functions', () => {
 
     it('fakeReduce function with numbers and initial values [VALIDATION]', () => {
       const callBackFunc = (acc, item) => acc += item;
-      const arr = [1, '', 2, '', 3, ''];
+      const arr = [1, , 2, , 3, ];
       const expected = 10;
       const actual = fakeReduce(arr, callBackFunc, 4);
   
@@ -127,7 +128,7 @@ describe('array method functions', () => {
   describe('every array method', () => {
     it('takes an array and a callback and returns true if all the callbacks return true', () => {
       const callBackFunc = item => item > 5;
-      const arr = [1, '', 3, '', 5, 6, '', 7];
+      const arr = [1, , 3, , 5, 6, , 7];
       const actual = fakeEvery(arr, callBackFunc);
 
       expect(actual).toEqual(false);
@@ -135,7 +136,7 @@ describe('array method functions', () => {
 
     it('fakeEvery with words [VALIDATION]', () => {
       const callBackFunc = item => item[0].toLowerCase() === 'm';
-      const arr = ['Missael', '', 'michael', 'marty', '', '', 'morty'];
+      const arr = ['Missael', , 'michael', 'marty', , , 'morty'];
       const actual = fakeEvery(arr, callBackFunc);
   
       expect(actual).toEqual(true);
@@ -146,7 +147,7 @@ describe('array method functions', () => {
         const itemString = item.toString();
         return itemString.toLowerCase() === 't';
       };
-      const arr = [1, 'b', 0, 13, 'T', 't', ''];
+      const arr = [1, 'b', 0, 13, 'T', 't', ];
       const actual = fakeEvery(arr, callBackFunc);
     
       expect(actual).toEqual(false);
