@@ -1,6 +1,7 @@
 import { fakeFilter } from '../filter-array';
 import { fakeFindIndex } from '../find-index';
 import { fakeMap } from '../map-array';
+import { fakeReduce } from '../reduce-array';
 
 describe('array method functions', () => {
   describe('map array method', () => {
@@ -74,12 +75,12 @@ describe('array method functions', () => {
 
   describe('reduce array method', () => {
     it('takes an array and a callback function and optional value for the initial value of the callback functions accumulator', () => {
-      const callBackFunc = (acc, item) => item[0].toLowerCase === 'm';
+      const callBackFunc = (acc, item) => {if(item[0].toLowerCase() === 'm') {return acc += 1;} else {return acc += 0;}};
       const arr = ['Missael', 'Michael', 'munchies', 'Bubba'];
       const expected = 3;
       const actual = fakeReduce(arr, callBackFunc);
 
-      expect(expected).toEqual(actual);
+      expect(actual).toEqual(expected);
     });
   });
 });
