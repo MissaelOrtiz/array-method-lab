@@ -131,5 +131,13 @@ describe('array method functions', () => {
 
       expect(actual).toEqual(false);
     });
+
+    it('fakeEvery [VALIDATION]', () => {
+      const callBackFunc = item => item[0].toLowerCase() === 'm';
+      const arr = ['Missael', '', 'michael', 'marty', '', '', 'morty'];
+      const actual = fakeEvery(arr, callBackFunc);
+  
+      expect(actual).toEqual(true);
+    });
   });
 });
