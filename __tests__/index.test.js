@@ -41,4 +41,15 @@ describe('array method functions', () => {
       expect(expected).toEqual(actual);
     });
   });
+
+  describe('findIndex array method', () => {
+    it('takes an array and a callback function and returns the index of the found item', () => {
+      const callBackFunc = item => item[0].toLowerCase() === 'm';
+      const arr = ['Andrew', 'Michael', 'Missael'];
+      const expected = 1;
+      const actual = fakeFindIndex(arr, callBackFunc);
+
+      expect(expected).toEqual(actual);
+    });
+  });
 });
