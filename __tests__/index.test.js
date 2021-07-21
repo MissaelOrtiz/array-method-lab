@@ -1,3 +1,4 @@
+import { fakeFilter } from '../filter-array';
 import { fakeMap } from '../map-array';
 
 describe('array method functions', () => {
