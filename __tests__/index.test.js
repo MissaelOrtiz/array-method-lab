@@ -132,12 +132,23 @@ describe('array method functions', () => {
       expect(actual).toEqual(false);
     });
 
-    it('fakeEvery [VALIDATION]', () => {
+    it('fakeEvery with words [VALIDATION]', () => {
       const callBackFunc = item => item[0].toLowerCase() === 'm';
       const arr = ['Missael', '', 'michael', 'marty', '', '', 'morty'];
       const actual = fakeEvery(arr, callBackFunc);
   
       expect(actual).toEqual(true);
+    });
+
+    it('fakeEvery with words and numbers [VALIDATION]', () => {
+      const callBackFunc = item => {
+        const itemString = item.toString();
+        return itemString.toLowerCase() === 't';
+      };
+      const arr = [1, 'b', 0, 13, 'T', 't', ''];
+      const actual = fakeEvery(arr, callBackFunc);
+    
+      expect(actual).toEqual(false);
     });
   });
 });
