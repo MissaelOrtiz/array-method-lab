@@ -1,3 +1,5 @@
+import { fakeMap } from '../map-array';
+
 describe('array method functions', () => {
   describe('map array method', () => {
     it('takes an array and a callback function and creates a new array with the callback function implemented.', () => {
