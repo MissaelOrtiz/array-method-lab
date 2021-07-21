@@ -52,5 +52,14 @@ describe('array method functions', () => {
 
       expect(expected).toEqual(actual);
     });
+
+    it('fakeFindIndex Validation', () => {
+      const callBackFunc = item => item > 3;
+      const arr = [1, 2, 3, 5, 4, 6, 7];
+      const expected = 3;
+      const actual = fakeFindIndex(arr, callBackFunc);
+  
+      expect(expected).toEqual(actual);
+    });
   });
 });
