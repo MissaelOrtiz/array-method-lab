@@ -1,3 +1,8 @@
 export const fakeMap = (arr, callback) => {
-  return [2, 3, 4];
+  const output = [];
+  for(const item of arr) {
+    const mappedItem = callback(item);
+    output.push(mappedItem);
+  }
+  return output;
 };
